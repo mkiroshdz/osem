@@ -60,6 +60,15 @@ module Admin
       @languages = @program.languages_list
     end
 
+    def new
+      @event_types = @program.event_types
+      @comments = nil
+      @comment_count = 0
+      @user = @event.submitter
+      @url = admin_conference_program_event_path(@conference.short_title, @event)
+      @languages = @program.languages_list
+    end
+
     def comment
       comment = Comment.new(comment_params)
       comment.commentable = @event

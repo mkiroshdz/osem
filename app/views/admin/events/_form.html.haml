@@ -15,7 +15,7 @@
           .tab-pane#commercials-content
             %p.text-muted
               You can add commercials for your proposal. These commercials will be displayed on the
-              = link_to 'public proposal page.', conference_program_proposal_path(@conference.short_title, @event)
+              -# = link_to 'public proposal page.', conference_program_proposal_path(@conference.short_title, @event)
               If you don't add a commercial, the conference commercial will be displayed!
             - if can? :create, @event.commercials.new
               .row
@@ -24,7 +24,7 @@
                   #resource-placeholder{ style: 'background-color:#d3d3d3; float: left; width: 400px; height: 250px; margin: 5px; border-width: 1px; border-style: solid; border-color: rgba(0,0,0,.2);' }
               .row
                 .col-md-6
-                  = form_for(@event.commercials.new, url: conference_program_proposal_commercials_path(conference_id: @conference.short_title, proposal_id: @event)) do |f|
+                  -# = form_for(@event.commercials.new, url: conference_program_proposal_commercials_path(conference_id: @conference.short_title, proposal_id: @event)) do |f|
                     = render partial: 'proposals/commercial_form_fields', locals: { f: f, commercial: @event.commercials.build }
               %hr
             - @event.commercials.each_slice(3) do |slice|
